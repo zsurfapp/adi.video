@@ -543,15 +543,21 @@
       injectPopunder();
     }
 
-    // Adsterra Native Banner — same zone ID on every container, invoke.js fills them all
+    // Adsterra Native Banner — direct script tag (new zone: 31ebb771827ff930a396d4dc9e818958)
     function injectAdsterra() {
       if (document.querySelector('script[data-adsterra-loaded]')) return;
       const s = document.createElement('script');
       s.async = true;
       s.setAttribute('data-cfasync', 'false');
-      s.src = 'https://pl31233689.profitableratecpmnetwork.com/dc3ee389415a7378d67f2c9dbaae6681/invoke.js';
+      s.src = 'https://pl31404159.profitableratecpmnetwork.com/31ebb771827ff930a396d4dc9e818958/invoke.js';
       s.setAttribute('data-adsterra-loaded', '1');
       document.body.appendChild(s);
+      // Inject container div for the new zone
+      if (!document.getElementById('container-31ebb771827ff930a396d4dc9e818958')) {
+        const div = document.createElement('div');
+        div.id = 'container-31ebb771827ff930a396d4dc9e818958';
+        document.body.appendChild(div);
+      }
     }
 
     // Adsterra Social Bar — sticky widget at browser edge
